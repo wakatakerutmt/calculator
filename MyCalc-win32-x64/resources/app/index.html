@@ -1,0 +1,386 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Physics Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <h1>Physics Calculator</h1>
+  <!-- We are using node <script>document.write(process.versions.node)</script>,
+  Chrome <script>document.write(process.versions.chrome)</script>,
+  and Electron <script>document.write(process.versions.electron)</script>. -->
+     <ul>
+       <li id="menu1" class="current">
+           P/I/&#948;計算
+       </li>
+       <li id="menu2">
+           方立の強度の計算
+       </li>
+       <li class="close" id="close">
+         [×]
+       </li>
+     </ul>
+  </header>
+
+<div id="page1">
+  <div class="p">
+    <div class="pLeft">
+      P =
+    </div>
+    <div class="pMiddle">
+        <div class="upper">
+          384 *
+          <select id="e_num" name="" value="" placeholder="E">
+            <option value="al" selected>アルミ： 0.7*10^6</option>
+            <option value="steal">スチール： 2.1*10^6</option>
+            <option value="stain">ステンレス： 1.97*10^6</option>
+          </select>
+          *
+          <input id="i_num" type="number" name="" value="" placeholder="I">*
+          <input id="siguma_num" type="number" name="" value="" placeholder="&#948;">
+          <br />
+        </div>
+        <div class="lower">
+          <input id="w_num" type="number" name="" value="" placeholder="W"> / 2 *
+          <input id="l_num" type="number" name="" value="" placeholder="L">^4 *
+          <input id="c_num" type="number" name="" value="" placeholder="C">
+          <!-- <button id="load" type="button" name="button">読み込み</button> -->
+        </div>
+        <div id="p_save">計算結果</div>
+    </div>
+     <div class="pRight">
+       <div id="pResult">= ?</div>
+     </div>
+   </div>
+
+
+   <div class="i">
+     <div class="iLeft">
+       I =
+     </div>
+     <div class="iMiddle">
+         <div class="upper">
+           5 *
+           <input id="i_p_num" type="number" name="" value="" placeholder="P">*
+           <input id="i_w_num" type="number" name="" value="" placeholder="W">* /2 *
+           <input id="i_l_num" type="number" name="" value="" placeholder="L">^4
+           <br />
+         </div>
+         <div class="lower">
+           <input id="i_siguma_num" type="number" name="" value="" placeholder="&#948;">*
+            384 *
+           <select id="i_e_num" name="" value="" placeholder="E">
+             <option value="al" selected>アルミ： 0.7*10^6</option>
+             <option value="steal">スチール： 2.1*10^6</option>
+             <option value="stain">ステンレス： 1.97*10^6</option>
+           </select>
+           <!-- <button id="load" type="button" name="button">読み込み</button> -->
+         </div>
+         <div id="i_save">計算結果</div>
+     </div>
+      <div class="iRight">
+        <div id="iResult">= ?</div>
+      </div>
+    </div>
+
+    <div class="siguma">
+      <div class="sigumaLeft">
+        &#948; =
+      </div>
+      <div class="sigumaMiddle">
+          <div class="upper">
+            5 *
+            <input id="siguma_p_num" type="number" name="" value="" placeholder="P">*
+            <input id="siguma_w_num" type="number" name="" value="" placeholder="W">* /2 *
+            <input id="siguma_l_num" type="number" name="" value="" placeholder="L">^4
+            <br />
+          </div>
+          <div class="lower">
+             384 *
+            <select id="siguma_E_num" name="" value="" placeholder="E">
+              <option value="al" selected>アルミ： 0.7*10^6</option>
+              <option value="steal">スチール： 2.1*10^6</option>
+              <option value="stain">ステンレス： 1.97*10^6</option>
+            </select>
+             *
+            <input id="siguma_i_num" type="number" name="" value="" placeholder="I">
+            <!-- <button id="load" type="button" name="button">読み込み</button> -->
+          </div>
+          <div id="siguma_save">計算結果</div>
+      </div>
+       <div class="sigumaRight">
+         <div id="sigumaResult">= ?</div>
+       </div>
+     </div>
+
+</div>
+
+<div id="page2" class="disappear">
+
+  <div class="a">
+    <div class="aLeft">
+      a1 =
+    </div>
+    <div class="aMiddle">
+        <div class="upper">
+          <input id="w1_num" type="number" name="" value="" placeholder="W1"> +
+          <input id="a_num" type="number" name="" value="" placeholder="a">
+          <br />
+        </div>
+        <div class="lower">
+          4
+        </div>
+        <div id="a1_save">計算結果</div>
+    </div>
+     <div class="aRight">
+       <div id="a1Result">= ?</div>
+     </div>
+   </div>
+
+   <div class="a">
+     <div class="aLeft">
+       a2 =
+     </div>
+     <div class="aMiddle">
+         <div class="upper">
+           <input id="w2_num" type="number" name="" value="" placeholder="W2"> +
+           <input id="a_num_copy" type="number" name="" value="" placeholder="a">
+           <br />
+         </div>
+         <div class="lower">
+           4
+         </div>
+         <div id="a2_save">計算結果</div>
+     </div>
+      <div class="aRight">
+        <div id="a2Result">= ?</div>
+      </div>
+    </div>
+    <br />
+    <br />
+
+
+  <div class="w">
+    <div class="wLeft">
+      w1 =
+    </div>
+    <div class="wMiddle">
+          <input id="p_num" type="number" name="" value="" placeholder="p" onkeyup="keyUpP()"> *
+          <input id="a1_num" type="number" name="" value="" placeholder="a1">
+          <br />
+        <div id="w1_save">計算結果</div>
+    </div>
+     <div class="wRight">
+       <div id="w1Result">= ?</div>
+     </div>
+   </div>
+   <div class="w">
+     <div class="wLeft">
+       w2 =
+     </div>
+     <div class="wMiddle">
+           <input id="p_num_copy" type="number" name="" value="" placeholder="p"> *
+           <input id="a2_num" type="number" name="" value="" placeholder="a2">
+           <br />
+         <div id="w2_save">計算結果</div>
+     </div>
+      <div class="wRight">
+        <div id="w2Result">= ?</div>
+      </div>
+    </div>
+
+    <div style="margin-left: 70px;">断面性能</div>
+    <div class="i123">
+      <div class="i123Left">
+        I =
+      </div>
+      <div class="i123Middle">
+            <input id="i1_num" type="number" name="" value="" placeholder="I1"> +
+            <input id="i2_num" type="number" name="" value="" placeholder="I2"> +
+            <input id="i3_num" type="number" name="" value="" placeholder="I3">
+            <br />
+          <div id="i123_save">計算結果</div>
+      </div>
+       <div class="i123Right">
+         <div id="i123Result">= ?</div>
+       </div>
+     </div>
+
+
+   <div class="smax">
+       <div class="smaxLeft">
+         &#948; max =
+       </div>
+       <div class="smaxMiddle">
+         <div class="firstItem">
+           <div class="upper">
+             <input id="w1_num_copy" type="number" name="" value="" placeholder="w1"> ( 5 *
+             <input id="l_num_1" type="number" name="" value="" placeholder="l" onkeyup="keyUpL()">^2 - 4
+             <input id="a1_num_copy" type="number" name="" value="" placeholder="a1">^2 )^2
+             <br />
+           </div>
+           <div class="lower">
+              1920 *
+             <select id="e_num_1" name="" value="" placeholder="E" onclick="clickE()">
+               <option value="al" selected>アルミ： 0.7*10^6</option>
+               <option value="steal">スチール： 2.1*10^6</option>
+               <option value="stain">ステンレス： 1.97*10^6</option>
+             </select>
+             *
+             <input id="i_num_cop" type="number" name="" value="" placeholder="I">
+           </div>
+         </div>
+                <!-- 隙間埋め -->
+         <div style="width:80px; height:100px;"></div>
+
+         <div style="font-size: 32px; margin-left: 15px; margin-top: 30px;float:left;">+</div>
+         <div class="secondItem">
+           <div class="upper">
+             <input id="w2_num_copy" type="number" name="" value="" placeholder="w2"> ( 5 *
+             <input id="l_num_copy" type="number" name="" value="" placeholder="l">^2 - 4
+             <input id="a2_num_copy" type="number" name="" value="" placeholder="a2">^2 )^2
+             <br />
+           </div>
+           <div class="lower">
+              1920 *
+             <select id="e_num_copy" name="" value="" placeholder="E">
+               <option value="al" selected>アルミ： 0.7*10^6</option>
+               <option value="steal">スチール： 2.1*10^6</option>
+               <option value="stain">ステンレス： 1.97*10^6</option>
+             </select>
+             *
+             <input id="i_num_copy" type="number" name="" value="" placeholder="I">
+             <!-- <button id="load" type="button" name="button">読み込み</button> -->
+           </div>
+           <div id="smax_save">計算結果</div>
+         </div>
+       </div>
+       <div class="smaxRight">
+         <div id="smaxResult">= ?</div>
+       </div>
+    </div>
+
+    <div class="mmax">
+        <div class="mmaxLeft">
+          M max =
+        </div>
+        <div class="mmaxMiddle">
+          <div class="firstItem">
+            <div class="upper">
+              <input id="w1_num_copy2" type="number" name="" value="" placeholder="w1"> ( 3 *
+              <input id="l_num_copy2" type="number" name="" value="" placeholder="l">^2 - 4
+              <input id="a1_num_copy2" type="number" name="" value="" placeholder="a1">^2 )
+              <br />
+            </div>
+            <div class="lower">
+              24
+            </div>
+          </div>
+                 <!-- 隙間埋め -->
+          <div style="width:80px; height:100px;"></div>
+
+          <div style="font-size: 32px; margin-left: 15px; margin-top: 30px;float:left;">+</div>
+          <div class="secondItem">
+            <div class="upper">
+              <input id="w2_num_copy2" type="number" name="" value="" placeholder="w2"> ( 3 *
+              <input id="l_num_copy3" type="number" name="" value="" placeholder="l">^2 - 4
+              <input id="a2_num_copy2" type="number" name="" value="" placeholder="a2">^2 )
+              <br />
+            </div>
+            <div class="lower">
+               24
+            </div>
+            <div id="mmax_save">計算結果</div>
+          </div>
+        </div>
+        <div class="mmaxRight">
+          <div id="mmaxResult">= ?</div>
+        </div>
+     </div>
+
+
+     <div class="sgm">
+       <div class="sgmLeft">
+         方立&#963;1 =
+       </div>
+       <div class="sgmMiddle">
+           <div class="upper">
+             <input id="m_max_num" type="number" name="" value="" placeholder="Mmax">
+              *
+             <input id="i1_num_copy" type="number" name="" value="" placeholder="I1">
+             <br />
+           </div>
+           <div class="lower">
+             <input id="z1_num" type="number" name="" value="" placeholder="Z1">
+              *
+             <input id="i_num_copy1" type="number" name="" value="" placeholder="I">
+             <!-- <button id="load" type="button" name="button">読み込み</button> -->
+           </div>
+           <div id="sgm1_save">計算結果</div>
+       </div>
+        <div class="sgmRight">
+          <div id="sgm1Result">= ?</div>
+        </div>
+      </div>
+
+      <div class="sgm">
+        <div class="sgmLeft">
+          左枠&#963;2 =
+        </div>
+        <div class="sgmMiddle">
+            <div class="upper">
+              <input id="m_max_num_copy" type="number" name="" value="" placeholder="Mmax">
+               *
+              <input id="i2_num_copy" type="number" name="" value="" placeholder="I2">
+              <br />
+            </div>
+            <div class="lower">
+              <input id="z2_num" type="number" name="" value="" placeholder="Z2">
+               *
+              <input id="i_num_copy2" type="number" name="" value="" placeholder="I">
+              <!-- <button id="load" type="button" name="button">読み込み</button> -->
+            </div>
+            <div id="sgm2_save">計算結果</div>
+        </div>
+         <div class="sgmRight">
+           <div id="sgm2Result">= ?</div>
+         </div>
+       </div>
+
+
+       <div class="sgm">
+         <div class="sgmLeft">
+           右枠&#963;3 =
+         </div>
+         <div class="sgmMiddle">
+             <div class="upper">
+               <input id="m_max_num_copy2" type="number" name="" value="" placeholder="Mmax">
+                *
+               <input id="i3_num_copy" type="number" name="" value="" placeholder="I3">
+               <br />
+             </div>
+             <div class="lower">
+               <input id="z3_num" type="number" name="" value="" placeholder="Z3">
+                *
+               <input id="i_num_copy3" type="number" name="" value="" placeholder="I">
+               <!-- <button id="load" type="button" name="button">読み込み</button> -->
+             </div>
+             <div id="sgm3_save">計算結果</div>
+         </div>
+          <div class="sgmRight">
+            <div id="sgm3Result">= ?</div>
+          </div>
+        </div>
+
+</div>
+
+
+   <script src="js/p_calc.js" charset="utf-8"></script>
+   <script src="js/i_calc.js" charset="utf-8"></script>
+   <script src="js/siguma_calc.js" charset="utf-8"></script>
+   <script src="js/strength_calc.js" charset="utf-8"></script>
+   <script src="js/menu.js" charset="utf-8"></script>
+</body>
+</html>

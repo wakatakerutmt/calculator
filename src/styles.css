@@ -1,0 +1,193 @@
+body{
+  font-family: Verdana, sans-serif;
+}
+
+input {
+  width: 80px;
+  height: 40px;
+}
+select {
+  width: 160px;
+  height: 40px;
+}
+
+
+#i_save, #p_save, #siguma_save, #a1_save, #w1_save, #a2_save, #w2_save,
+#smax_save, #mmax_save, #i123_save, #sgm1_save, #sgm2_save, #sgm3_save{
+  display: inline-block;
+  float: right;
+  width: 80px;
+  background: #d8d8d8;
+  color: #000000;
+  text-align: center;
+  text-decoration: none;
+  padding: 3px 0;
+  border-radius: 8px;
+  opacity: 0.9;
+  cursor: pointer;
+  z-index: 2;
+}
+#w1_save, #w2_save, #i123_save{
+  margin-top: 10px;
+}
+
+#i_save:hover, #p_save:hover, #siguma_save:hover,#a1_save:hover,#a2_save:hover,
+#w1_save:hover,#w2_save:hover, #smax_save:hover, #mmax_save:hover, #i123_save:hover,
+#sgm1_save:hover, #sgm2_save:hover, #sgm3_save:hover{
+  opacity: 1.0;
+}
+
+
+#iResult, #pResult, #sigumaResult, #a1Result, #w1Result, #a2Result, #w2Result,
+#smaxResult, #mmaxResult, #i123Result, #sgm1Result, #sgm2Result, #sgm3Result{
+  margin-top: 30px;
+  font-size: 32px;
+}
+
+
+.pLeft, .iLeft, .sigumaLeft, .aLeft, .wLeft, .smaxLeft, .mmaxLeft, .i123Left, .sgmLeft{
+  width: 150px;
+  height: 300px;
+  float: left;
+  text-align: center;
+  font-size: 32px;
+  padding-top: 30px;
+  padding-left: 40px;
+}
+
+.pMiddle, .iMiddle, .sigumaMiddle, .smaxMiddle, .mmaxMiddle, .i123Middle, .sgmMiddle{
+  width: 420px;
+  height: 300px;
+  float: left;
+  font-size: 16px;
+  overflow: hidden;
+}
+.aMiddle, .wMiddle{
+  width: 220px;
+  height: 300px;
+  float: left;
+  font-size: 16px;
+}
+.wMiddle, .i123Middle{
+  padding-top: 30px;
+}
+.i123Middle, .sgmMiddle{
+  width: 300px;
+}
+.smaxMiddle, .mmaxMiddle{
+  width: 500px;
+}
+
+.firstItem{
+  width:420px;
+  height: 100px;
+  float: left;
+}
+.secondItem{
+  height: 100px;
+  float: right;
+}
+
+.upper{
+  border-bottom: solid 1px ;
+  height: 45px;
+  text-align: center;
+}
+.lower{
+  margin-top: 6px;
+  height: 45px;
+  text-align: center;
+}
+
+.pRight, .iRight, .sigumaRight, .aRight, .wRight, .smaxRight, .mmaxRight, .i123Right, .sgmRight{
+  width: 350px;
+  height: 300px;
+  float: left;
+  font-size: 14px;
+  text-align: left;
+}
+
+.p , .i, .siguma, .a, .w, .smax, .mmax, .sgm {
+  width: 1200px;
+  height: 200px;
+  overflow: hidden;
+}
+.a, .w, .i123{
+  height: 150px;
+}
+.smax, .mmax{
+  height: 300px;
+}
+
+/* バグ修正 */
+.i123Left, .i123Right, .i123Middle{
+  height: 150px;
+}
+
+
+/* 背景 */
+body{
+  margin: 0;
+  background-image:url(img/.jpg);
+}
+#page1{
+  padding-top: 100px;
+  background-color:rgba(255,255,255,0.85);
+  height: 100%;
+}
+#page2{
+  padding-top: 100px;
+  background-color:rgba(255,255,255,0.85);
+}
+
+/* header  */
+header{
+  position: fixed;
+  width: 100%;
+  height: 50px;
+  color: white;
+  background-color: black;
+  margin-top: 0px;
+  z-index: 1;
+}
+
+
+header h1{
+  display: inline-block;
+  float: left;
+  margin: 0px;
+  width: 65%;
+  -webkit-app-region: drag;
+}
+
+
+header ul {
+  float: right;
+  margin: 0;
+  list-style-type: none;
+  padding-left: 0;
+  width: 35%;
+}
+
+header li {
+  display: inline-block;
+  padding: 4px 4px;
+  text-decoration: none;
+  color: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+
+header li:hover {
+  color: royalblue;
+}
+
+.current {
+  font-weight: bold;
+}
+
+.disappear{
+  display: none;
+}
