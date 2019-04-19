@@ -1,5 +1,5 @@
 // アプリケーション作成用のモジュールを読み込み
-const electron = require('electron'); // Electronのモジュール
+const electron = require("electron"); // Electronのモジュール
 const app = electron.app; // アプリケーションをコントロールするモジュール
 const BrowserWindow = electron.BrowserWindow; // ウィンドウを作成するモジュール
 
@@ -8,33 +8,38 @@ let mainWindow;
 
 function createWindow() {
   // メインウィンドウを作成します
-  mainWindow = new BrowserWindow({titleBarStyle: 'hiddenInset', frame: false, width: 1000, height: 800});
+  mainWindow = new BrowserWindow({
+    titleBarStyle: "hiddenInset",
+    frame: false,
+    width: 1000,
+    height: 800
+  });
 
   // メインウィンドウに表示するURLを指定します
   // （今回はmain.jsと同じディレクトリのindex.html）
-  mainWindow.loadFile('index.html');
+  mainWindow.loadFile("index.html");
 
   // デベロッパーツールの起動
-   // mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // メインウィンドウが閉じられたときの処理
-  mainWindow.on('closed', () => {
+  mainWindow.on("closed", () => {
     mainWindow = null;
   });
 }
 
 //  初期化が完了した時の処理
-app.on('ready', createWindow);
+app.on("ready", createWindow);
 
 // 全てのウィンドウが閉じたときの処理
-app.on('window-all-closed', () => {
+app.on("window-all-closed", () => {
   // macOSのとき以外はアプリケーションを終了させます
-  if (process.platform !== 'darwin') {
+  if (process.platform !== "darwin") {
     app.quit();
   }
 });
 // アプリケーションがアクティブになった時の処理(Macだと、Dockがクリックされた時）
-app.on('activate', () => {
+app.on("activate", () => {
   // メインウィンドウが消えている場合は再度メインウィンドウを作成する
   if (mainWindow === null) {
     createWindow();
